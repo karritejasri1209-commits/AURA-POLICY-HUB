@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Policy Hub - Your Trusted Insurance Partner</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX'); // Replace with your actual Measurement ID
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: background 0.3s ease, backdrop-filter 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #D4AF37;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: #D4AF37;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: #D4AF37;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23333" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #D4AF37, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #D4AF37, #FFD700);
+            color: #1a1a1a;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Profile Section */
+        .profile {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .profile-image {
+            text-align: center;
+        }
+
+        .profile-pic {
+            width: 250px;
+            height: 250px;
+            background: linear-gradient(135deg, #D4AF37, #FFD700);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #1a1a1a;
+            margin: 0 auto 2rem;
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .profile-details {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            margin-top: 1rem;
+        }
+
+        .profile-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .profile-content .title {
+            font-size: 1.3rem;
+            color: #D4AF37;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+
+        .experience-years {
+            background: linear-gradient(45deg, #D4AF37, #FFD700);
+            color: #1a1a1a;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .expertise-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .expertise-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .expertise-list li:before {
+            content: '✓';
+            background: #D4AF37;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .feedback-form-container {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+            text-align: center;
+        }
+        
+        .feedback-form-container h4 {
+            color: #D4AF37;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feedback-form-container p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #D4AF37, #FFD700);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        /* New section styles */
+        .simple-section {
+            padding: 80px 0;
+            text-align: center;
+            background: white;
+        }
+        
+        .simple-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+        
+        .simple-section p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+        
+        .partnerships-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .partner-logo {
+            padding: 2rem;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            min-height: 150px;
+        }
+        
+        .partner-logo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        
+        .partner-logo img {
+            max-width: 100%;
+            height: auto;
+            max-height: 80px;
+            object-fit: contain;
+           
+            transition: filter 0.3s ease;
+        }
+
+        .partner-logo:hover img {
+            filter: grayscale(0%);
+        }
+        
+        .partner-logo h4 {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            color: #1a1a1a;
+        }
+        
+        .partner-logo p {
+            font-size: 0.9rem;
+            color: #777;
+            margin-top: 0.5rem;
+            line-height: 1.4;
+        }
+
+        /* Insurance Types Section */
+        .insurance-types {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .insurance-main-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .insurance-category {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            position: relative;
+            border: 3px solid transparent;
+            background-clip: padding-box;
+            cursor: pointer; /* Add cursor to indicate it's clickable */
+            user-select: none;
+        }
+        
+        .insurance-category h3 {
+            transition: color 0.3s ease;
+        }
+
+        .insurance-category:hover h3 {
+            color: #D4AF37;
+        }
+
+        .insurance-category::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(45deg, #D4AF37, #FFD700);
+            border-radius: 20px;
+            z-index: -1;
+        }
+
+        .insurance-category h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #D4AF37, #FFD700);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: #1a1a1a;
+        }
+
+        .insurance-description {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 15px;
+            border-left: 5px solid #D4AF37;
+        }
+
+        .sub-types {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .sub-types li {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-left: 4px solid #D4AF37;
+        }
+
+        .sub-types li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .sub-types strong {
+            color: #D4AF37;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .sub-types p {
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .hidden-content {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+        }
+
+        .visible-content {
+            max-height: 1000px; /* A large value to ensure content is visible */
+            opacity: 1;
+        }
+
+
+        /* General Insurance Grid */
+        .general-insurance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #D4AF37;
+        }
+
+        .contact-info p {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .contact-details {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            margin-top: 2rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #D4AF37, #FFD700);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #1a1a1a;
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.1);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .contact-form h3 {
+            color: #D4AF37;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-form p {
+            color: white;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #1a1a1a;
+                flex-direction: column;
+                padding: 2rem 0;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .profile-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .partnerships-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .insurance-main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .general-insurance-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .google-form-container iframe {
+                height: 700px; /* Adjust height for smaller screens */
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Hidden sections */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+               <img src="assets/logo aph.png" alt="Aura Policy Hub Logo" height="80px">
+            </div>
+            <ul class="nav-links">
+                <li><a onclick="showSection('home')">Home</a></li>
+                <li><a onclick="showSection('profile')">My Profile</a></li>
+
+                <li><a onclick="showSection('services')">Services</a></li>
+                <li><a onclick="showSection('insurance')">Insurance Types</a></li>
+                <li><a onclick="showSection('loans')">Loans</a></li>
+                <li><a onclick="showSection('partnerships')">Our Partners</a></li>
+                <li><a onclick="showSection('contact')">Contact</a></li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content fade-in-up">
+                <h1>AURA POLICY HUB</h1>
+                <p>Your Trusted Partner in Comprehensive Insurance Solutions</p>
+                <p>Choosing the Best Investment & Insurance Plans Across All Companies</p>
+                <button class="cta-button" onclick="showSection('contact')">Get Expert Consultation</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="profile" class="profile hidden">
+        <div class="container">
+            <div class="profile-grid">
+                <div class="profile-image fade-in-up">
+                    <div class="profile-pic">
+                        <img src="assets/profile pic.png" alt="Dunga Surya Narayana Profile Picture" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                    </div>
+
+                    <div class="profile-details">
+                        <h4 style="color: #D4AF37; margin-bottom: 1rem;">Professional Credentials</h4>
+                        <p><strong>IRDA Licensed Agent</strong></p>
+                        <p><strong>Certified Insurance Advisor</strong></p>
+                        <p><strong>Investment Planning Specialist</strong></p>
+                        <div class="experience-years" style="margin-top: 1.5rem; font-size: 1rem; padding: 0.8rem 1.5rem;">
+                            18+ Years Experience
+                        </div>
+                    </div>
+       
+                    
+                    <div class="feedback-form-container fade-in-up">
+                        <h4>Share Your Feedback</h4>
+                        <p>Help us improve our service by providing your valuable feedback. Your opinion matters!</p>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdowSRFziylQ4_3Cl6lGO_sOhmaZpAbGi3eHcmeCAqzAGNrzQ/viewform?usp=header" target="_blank" class="cta-button">
+                            Submit Feedback
+                        </a>
+                    </div>
+                </div>
+                <div class="profile-content fade-in-up">
+                    <h2>Dunga Surya Narayana</h2>
+                    <div class="title">Senior Insurance Consultant & Financial Advisor</div>
+                    
+                    <div class="experience-years">18+ Years of Excellence in Insurance Industry</div>
+                    
+                    <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem; color: #555;">
+                        Welcome to my world of comprehensive insurance solutions. With over 18 years of dedicated experience in the life and general insurance industry, I have helped thousands of families and individuals secure their financial future through carefully selected insurance and investment plans.
+                    </p>
+
+                    <div style="background: white; padding: 2rem; border-radius: 15px; margin-bottom: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <h4 style="color: #D4AF37; margin-bottom: 1rem; font-size: 1.3rem;">My Mission</h4>
+                        <p style="color: #666; line-height: 1.7;">
+                            To provide transparent, unbiased, and comprehensive insurance guidance that empowers my clients to make informed decisions about their financial security. I believe in building long-term relationships based on trust, expertise, and genuine care for my clients' wellbeing.
+                        </p>
+                    </div>
+
+                    <h4 style="color: #1a1a1a; margin-bottom: 1rem; font-size: 1.4rem;">Areas of Expertise</h4>
+                    <ul class="expertise-list">
+                        <li>Life Insurance Planning & Portfolio Optimization</li>
+                        <li>Health Insurance & Family Protection Plans</li>
+                        <li>Investment-Linked Insurance Products (ULIPs)</li>
+                        <li>Retirement & Pension Planning</li>
+                        <li>Child Education & Marriage Planning</li>
+                        <li>General Insurance (Motor, Home, Travel)</li>
+                        <li>Risk Assessment & Insurance Needs Analysis</li>
+                        <li>Claims Assistance & Policy Management</li>
+                    </ul>
+
+                    <div style="background: linear-gradient(135deg, #D4AF37, #FFD700); color: #1a1a1a; padding: 2rem; border-radius: 15px; margin-top: 2rem;">
+                        <h4 style="margin-bottom: 1rem; font-size: 1.3rem;">Why Choose Me as Your Insurance Partner?</h4>
+                        <ul style="list-style: none;">
+                            <li style="margin-bottom: 0.5rem;">✓ Independent consultant working with ALL major insurance companies</li>
+                            <li style="margin-bottom: 0.5rem;">✓ Unbiased recommendations based on YOUR specific needs</li>
+                            <li style="margin-bottom: 0.5rem;">✓ Comprehensive market analysis for best policy selection</li>
+                            <li style="margin-bottom: 0.5rem;">✓ End-to-end service from consultation to claim settlement</li>
+                            <li>✓ Ongoing support and policy reviews throughout policy tenure</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="services" class="services hidden">
+        <div class="container">
+            <div class="section-title fade-in-up">
+                <h2>Comprehensive Insurance Services</h2>
+                <p>Professional insurance solutions tailored to protect what matters most to you and your family</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in-up">
+                    <h3>🔍 Insurance Policy Comparison</h3>
+                    <p>Get detailed comparison of policies from all major insurance companies including LIC, HDFC Life, SBI Life, ICICI Prudential, Max Life, and more. I analyze premium costs, benefits, claim settlement ratios, and terms to help you choose the best policy.</p>
+                    <ul style="margin-top: 1rem; color: #666;">
+                        <li>• Premium comparison across companies</li>
+                        <li>• Benefit analysis and coverage details</li>
+                        <li>• Claim settlement ratio evaluation</li>
+                        <li>• Terms and conditions review</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in-up">
+                    <h3>📊 Investment & Insurance Planning</h3>
+                    <p>Discover the perfect balance between protection and wealth creation through carefully selected investment-linked insurance plans. I help you understand ULIPs, endowment plans, and money-back policies to maximize your returns.</p>
+                    <ul style="margin-top: 1rem; color: #666;">
+                        <li>• ULIP fund performance analysis</li>
+                        <li>• Risk profiling and fund allocation</li>
+                        <li>• Tax-saving insurance solutions</li>
+                        <li>• Retirement corpus planning</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in-up">
+                    <h3>👨‍👩‍👧‍👦 Complete Family Protection</h3>
+                    <p>Comprehensive life and health insurance solutions that ensure your family's financial security and healthcare needs are fully covered. From term life insurance to family floater health plans.</p>
+                    <ul style="margin-top: 1rem; color: #666;">
+                        <li>• Family income protection planning</li>
+                        <li>• Child education fund creation</li>
+                        <li>• Spouse and dependent coverage</li>
+                        <li>• Emergency fund planning</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in-up">
+                    <h3>🏥 Health Insurance Consultation</h3>
+                    <p>Navigate the complex world of health insurance with expert guidance. I help you understand coverage limits, network hospitals, waiting periods, co-payment clauses, and claim procedures for informed decision-making.</p>
+                    <ul style="margin-top: 1rem; color: #666;">
+                        <li>• Network hospital analysis</li>
+                        <li>• Coverage limit optimization</li>
+                        <li>• Pre-existing disease coverage</li>
+                        <li>• Claim process guidance</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in-up">
+                    <h3>🚗 General Insurance Solutions</h3>
+                    <p>Protect your valuable assets including vehicles, home, and business with comprehensive general insurance coverage. Get the best rates and coverage from top general insurance companies.</p>
+                    <ul style="margin-top: 1rem; color: #666;">
+                        <li>• Motor insurance (comprehensive & third-party)</li>
+                        <li>• Home and property insurance</li>
+                        <li>• Travel insurance for domestic & international trips</li>
+                        <li>• Business and professional indemnity</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in-up">
+                    <h3>🤝 Ongoing Support & Claims Assistance</h3>
+                    <p>Receive continuous support throughout your policy lifecycle. I assist with premium payments, policy renewals, beneficiary updates, and most importantly, guide you through the claims process.</p>
+                    <ul style="margin-top: 1rem; color: #666;">
+                        <li>• Claim filing and documentation</li>
+                        <li>• Follow-up with insurance companies</li>
+                        <li>• Policy review and updates</li>
+                        <li>• Renewal and modification assistance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="insurance" class="insurance-types hidden">
+        <div class="container">
+            <div class="section-title fade-in-up">
+                <h2>Complete Guide to Insurance Types</h2>
+                <p>Understanding every aspect of life and general insurance to make informed decisions for your financial security</p>
+            </div>
+            <div class="insurance-main-grid">
+                <div class="insurance-category fade-in-up">
+                    <h3 onclick="toggleSubtypes(this)">
+                        <span class="icon">💖</span>Life Insurance
+                    </h3>
+                    <div class="insurance-description">
+                        Life insurance is a contract between you and an insurance company where you pay regular premiums, and in return, the company provides a lump sum payment (death benefit) to your nominated beneficiaries upon your death. It ensures your family's financial security and helps maintain their lifestyle even in your absence.
+                    </div>
+                    
+                    <ul class="sub-types hidden-content">
+                        <li>
+                            <strong>Term Life Insurance</strong>
+                            <p>Pure life protection at the most affordable premium. Provides high coverage for a specific period (5-40 years). No maturity benefit - pays only on death during policy term. Best for young families needing maximum coverage at minimum cost. Premiums are lowest among all life insurance types.</p>
+                        </li>
+                        <li>
+                            <strong>Whole Life Insurance</strong>
+                            <p>Provides lifelong coverage with guaranteed cash value growth. Combines life insurance with savings. Higher premiums but builds wealth over time. Pays death benefit regardless of when you die. Cash value can be borrowed against during lifetime. Suitable for estate planning and permanent protection needs.</p>
+                        </li>
+                        <li>
+                            <strong>Endowment Plans</strong>
+                            <p>Dual benefit of life insurance and guaranteed savings. Pays maturity benefit if you survive the policy term, or death benefit to nominees if you don't. Lower risk investment with guaranteed returns. Ideal for goal-based planning like child's education or home purchase. Tax benefits under Section 80C and 10(10D).</p>
+                        </li>
+                        <li>
+                            <strong>Unit Linked Insurance Plans (ULIPs)</strong>
+                            <p>Market-linked life insurance offering both protection and investment. Premiums invested in equity, debt, or balanced funds based on your risk appetite. Flexibility to switch between funds. Potential for higher returns but market risks involved. Lock-in period of 5 years. Suitable for long-term wealth creation.</p>
+                        </li>
+                        <li>
+                            <strong>Money Back Policies</strong>
+                            <p>Provides periodic payouts (typically 15-25% of sum assured) at regular intervals during policy term while maintaining life coverage. Remaining amount paid at maturity. Helps meet intermediate financial goals. Lower returns but provides liquidity during policy term. Good for systematic savings with life cover.</p>
+                        </li>
+                        <li>
+                            <strong>Child Plans</strong>
+                            <p>Specially designed to secure your child's future education and marriage expenses. Offers premium waiver benefit if parent dies during policy term. Child continues to receive benefits. Some plans provide regular payouts at specific ages (18, 21, 25). Combines insurance and systematic savings for child's milestones.</p>
+                        </li>
+                        <li>
+                            <strong>Pension/Retirement Plans</strong>
+                            <p>Helps build retirement corpus through regular premium payments. Offers immediate or deferred annuity options. Can choose lump sum withdrawal, regular pension, or combination of both. Provides financial independence post-retirement. Some plans offer life cover during accumulation phase. Tax-efficient retirement planning tool.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="insurance-category fade-in-up">
+                    <h3 onclick="toggleSubtypes(this)">
+                        <span class="icon">🏥</span>Health Insurance
+                    </h3>
+                    <div class="insurance-description">
+                        Health insurance covers medical expenses arising from illness, injury, or hospitalization. It provides cashless treatment at network hospitals or reimbursement for medical bills. With rising healthcare costs, health insurance is essential to protect your savings from medical emergencies and ensure access to quality healthcare.
+                    </div>
+                    
+                    <ul class="sub-types hidden-content">
+                        <li>
+                            <strong>Individual Health Insurance</strong>
+                            <p>Personal medical coverage designed for single individuals. Customizable coverage based on age, health condition, and budget. Covers hospitalization, pre and post-hospitalization expenses, day-care procedures, and ambulance charges. Premium increases with age. Ideal for unmarried individuals or when family members need different coverage amounts.</p>
+                        </li>
+                        <li>
+                            <strong>Family Floater Plans</strong>
+                            <p>Single policy covering entire family (spouse and children) with shared sum insured. Cost-effective compared to individual policies. Coverage can be used by any family member up to the total sum insured. Premium based on eldest family member's age. Suitable for nuclear families where major medical expenses are unlikely to occur simultaneously.</p>
+                        </li>
+                        <li>
+                            <strong>Senior Citizen Health Plans</strong>
+                            <p>Specialized coverage for individuals above 60 years with higher sum insured options. Covers age-related ailments, pre-existing diseases after waiting period, and domiciliary treatment. Some plans offer coverage up to 80+ years with simplified medical underwriting. Essential for elderly parents' comprehensive healthcare needs.</p>
+                        </li>
+                        <li>
+                            <strong>Critical Illness Insurance</strong>
+                            <p>Provides lump sum payout upon diagnosis of specified critical illnesses like cancer, heart attack, stroke, kidney failure, organ transplant. Money can be used for treatment, income replacement, or any purpose. Complements regular health insurance. Coverage for 15-40 major critical illnesses depending on plan. Helps maintain lifestyle during treatment period.</p>
+                        </li>
+                        <li>
+                            <strong>Maternity Insurance</strong>
+                            <p>Covers pregnancy, delivery, and newborn baby expenses including normal delivery, cesarean section, pre and post-natal care. Usually has waiting period of 2-4 years for planned pregnancy. Covers vaccination costs for newborn. Some plans include coverage for complications during pregnancy. Essential for planned parenthood financial security.</p>
+                        </li>
+                        <li>
+                            <strong>Top-up & Super Top-up Plans</strong>
+                            <p>Additional coverage that activates after your base policy limit is exhausted (top-up) or after deductible amount is reached (super top-up). Cost-effective way to increase total coverage. Super top-up covers multiple claims in a year after deductible, while top-up covers only specific claim. Ideal for enhancing existing coverage economically.</p>
+                        </li>
+                        <li>
+                            <strong>Group Health Insurance</strong>
+                            <p>Employer-provided coverage for employees and often their dependents. Lower premium due to group buying power. Usually covers basic hospitalization with option to enhance coverage. Coverage terminates with job change unless portable. May have limitations on pre-existing diseases and coverage amounts. Good as base coverage but may need supplementing.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem;">
+                <div class="insurance-category fade-in-up">
+                    <h3 onclick="toggleSubtypes(this)">
+                        <span class="icon">🏠</span>General Insurance
+                    </h3>
+                    <div class="insurance-description">
+                        General insurance protects your assets and provides financial coverage against various risks and uncertainties in daily life. Unlike life insurance, these are typically annual policies that need renewal. They cover tangible assets like vehicles, homes, and businesses, as well as provide liability coverage.
+                    </div>
+                    
+                    <div class="general-insurance-grid hidden-content">
+                        <ul class="sub-types">
+                            <li>
+                                <strong>Motor Insurance</strong>
+                                <p><u>Third-Party Insurance:</u> Mandatory by law, covers liability for damage/injury caused to third parties. <u>Comprehensive Insurance:</u> Covers own vehicle damage due to accidents, theft, fire, floods, riots, and natural disasters. Includes personal accident cover for owner-driver. Add-ons available for extended coverage like zero depreciation, engine protection, roadside assistance.</p>
+                            </li>
+                            <li>
+                                <strong>Home Insurance</strong>
+                                <p>Protects your home structure and contents from fire, burglary, natural disasters, and other perils. Covers building repair/reconstruction costs, household items replacement, temporary accommodation expenses if home becomes uninhabitable. Includes personal liability coverage for accidents on your property. Essential for protecting your largest investment.</p>
+                            </li>
+                            <li>
+                                <strong>Travel Insurance</strong>
+                                <p><u>Domestic Travel:</u> Covers trip cancellation, medical emergencies, baggage loss within India. <u>International Travel:</u> Mandatory for many visa applications, covers overseas medical treatment, emergency evacuation, trip interruption, passport loss, flight delays. Covers COVID-19 related expenses in many current policies.</p>
+                            </li>
+                        </ul>
+                        <ul class="sub-types">
+                            <li>
+                                <strong>Personal Accident Insurance</strong>
+                                <p>Covers accidental death, permanent total/partial disability, and temporary total disability due to accidents. Provides lump sum payment for death/disability and weekly compensation for hospitalization due to accidents. Covers accidents anywhere in the world 24/7. Does not cover illness or natural death - only accident-related incidents.</p>
+                            </li>
+                            <li>
+                                <strong>Business Insurance</strong>
+                                <p>Comprehensive coverage for business premises, stock, equipment, and operations. Includes fire insurance, burglary insurance, public liability, product liability, directors' and officers' liability, key man insurance, business interruption coverage. Protects against financial losses that could impact business continuity and operations.</p>
+                            </li>
+                            <li>
+                                <strong>Cyber Insurance</strong>
+                                <p>Growing importance in digital age - covers financial losses from cyber attacks, data breaches, system failures, online fraud, cyber extortion, privacy liability. Includes costs of data recovery, legal expenses, notification costs, credit monitoring for affected customers. Essential for businesses handling digital data and online transactions.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="loans" class="simple-section hidden">
+        <div class="container">
+            <div class="section-title fade-in-up">
+                <h2>Loans and Financial Assistance</h2>
+                <p>We provide expert guidance and assistance for securing various types of loans. Our strong relationships with leading financial institutions allow us to find the best interest rates and loan options tailored to your specific needs.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in-up">
+                    <h3>🏠 Home Loans</h3>
+                    <p>Whether you're buying your first home or refinancing an existing one, we help you navigate the process. We compare interest rates, eligibility criteria, and repayment options from top banks and housing finance companies to get you the best deal.</p>
+                </div>
+                <div class="service-card fade-in-up">
+                    <h3>🚗 Car Loans</h3>
+                    <p>Our advisors assist you in securing vehicle loans for new or used cars. We offer guidance on required documentation, loan tenures, and interest rates to make your car buying experience smooth and hassle-free.</p>
+                </div>
+                <div class="service-card fade-in-up">
+                    <h3>🎓 Education Loans</h3>
+                    <p>Plan for your or your child's future education without financial stress. We provide comprehensive advice on education loans for domestic and international studies, covering tuition fees and living expenses from various lenders.</p>
+                </div>
+                <div class="service-card fade-in-up">
+                    <h3>💼 Business Loans</h3>
+                    <p>Secure the capital you need to start, grow, or manage your business. We connect you with institutions offering various business loans, including working capital loans, term loans, and equipment financing.</p>
+                </div>
+                <div class="service-card fade-in-up">
+                    <h3>💰 Personal Loans</h3>
+                    <p>Get quick and easy access to funds for any personal need, such as medical emergencies, weddings, or travel. We help you find personal loans with competitive interest rates and flexible repayment terms.</p>
+                </div>
+                <div class="service-card fade-in-up">
+                    <h3>🏡 Loan Against Property</h3>
+                    <p>Leverage your existing property to secure a large loan at a lower interest rate. Our experts assist you in getting the maximum value for your property and the most favorable terms for your loan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="partnerships" class="simple-section hidden">
+        <div class="container">
+            <div class="section-title fade-in-up">
+                <h2>Our Trusted Insurance Partners</h2>
+                <p>As an independent consultant, I work with all major insurance companies to provide unbiased and comprehensive advice. This ensures you get access to the best products and claim services from the most reliable insurers in the market.</p>
+            </div>
+            <div class="partnerships-grid fade-in-up">
+                <div class="partner-logo">
+                    <img src="assets/LOGOS\pnb-metlife-svg.svg" alt="PNB MetLife Logo">
+                    <h4>PNB MetLife</h4>
+                    <p>A trusted name in life insurance and investment plans.</p>
+                </div>
+                <div class="partner-logo">
+                   <img src="assets/LOGOS\hdfclife.svg" width="150" height="80">
+
+                    <h4>HDFC Life</h4>
+                    <p>Offers a wide range of life insurance products to secure your family's future.</p>
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/LOGOS\TATA AIA.svg" alt="TATA AIA Logo">
+                    <h4>TATA AIA</h4>
+                    <p>Known for its robust life insurance and wealth management solutions.</p>
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/LOGOS\BAJAJ LIFE.svg"  alt="Bajaj Life Logo" >
+                    <h4>Bajaj Life</h4>
+                    <p>Provides innovative and customer-centric insurance plans.</p>
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/LOGOS\1751257276336.png" alt="ICICI Prudential Logo">
+                    <h4>ICICI Prudential</h4>
+                    <p>A leading private life insurer with a strong claim settlement history.</p>
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/LOGOS\axis-max-life-insurance-logo.svg" alt="Axis Max Life Logo">
+                    <h4>Axis Max Life</h4>
+                    <p>Offers a comprehensive suite of protection and savings solutions.</p>
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/LOGOS\digit-life-logo.svg" alt="Digit Life Logo">
+                    <h4>Digit Life</h4>
+                    <p>Known for its simple, transparent, and tech-driven insurance policies.</p>
+                </div>
+
+                <div class="partner-logo">
+                    <img src="assets/LOGOS\logo.9352877eb4324b863dc2.png" alt="Manipal Cigna Logo">
+                    <h4>Manipal Cigna</h4>
+                    <p>Specializes in comprehensive health and wellness solutions.</p>
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/LOGOS\nivabupaMobileLogo.svg" alt="Niva Bupa Logo">
+                    <h4>Niva Bupa</h4>
+                    <p>Provides a wide range of health insurance products for families and individuals.</p>
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/LOGOS\il-logo.png" alt="ICICI Lombard Logo">
+                    <h4>ICICI Lombard</h4>
+                    <p>One of the largest general insurance companies in India.</p>
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/LOGOS\TataAigLogoNew.svg" alt="TATA AIG Logo">
+                    <h4>TATA AIG</h4>
+                    <p>Offers a diverse range of general insurance products.</p>
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/LOGOS\logo_hdfc.png" alt="HDFC Ergo Logo">
+                    <h4>HDFC Ergo</h4>
+                    <p>Known for its reliable and comprehensive general insurance policies.</p>
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/LOGOS\logo.png" alt="Chola Mandalam Logo">
+                    <h4>Chola Mandalam</h4>
+                    <p>A leading non-banking financial company with a strong insurance arm.</p>
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/LOGOS\usgi-logo.svg" alt="Universal Sompo Logo">
+                    <h4>Universal Sompo</h4>
+                    <p>Provides a variety of health and motor insurance plans.</p>
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/LOGOS\Magma Logo_0424 208X48 px.svg" alt="Magma Logo">
+                    <h4>Magma</h4>
+                    <p>Offers a range of general and commercial insurance products.</p>
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/LOGOS\download.png" alt="Reliance Logo">
+                    <h4>Reliance</h4>
+                    <p>A major player in the general insurance market with extensive network.</p>
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/LOGOS\star_health_new_logo_4a65bab316.svg" alt="Star Health Logo">
+                    <h4>Star Health</h4>
+                    <p>Specializes exclusively in health insurance products.</p>
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/LOGOS\digit.svg" alt="Digit Logo">
+                    <h4>Digit</h4>
+                    <p>A digital-first insurer with a focus on simplicity and customer experience.</p>
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/LOGOS\gcli.svg" alt="Future Generali Logo">
+                    <h4>Future Generali</h4>
+                    <p>Offers a broad spectrum of life and general insurance solutions.</p>
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/LOGOS\royal sundaram.svg" alt="Royal Sundaram Logo">
+                    <h4>Royal Sundaram</h4>
+                    <p>One of the oldest and most respected general insurers in India.</p>
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/LOGOS/care_health_insurance_logo.svg"lt="Care Logo">
+                    <h4>Care health Insurance</h4>
+                    <p>Provides health insurance plans with a focus on affordable and quality care.</p>
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/LOGOS\BAGIC_logo_R1.svg" alt="Bajaj Allianz Logo">
+                    <h4>Bajaj Allianz</h4>
+                    <p>A joint venture offering a comprehensive portfolio of insurance products.</p>
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/LOGOS\sbig-logo.svg" alt="SBI General Logo">
+                    <h4>SBI General</h4>
+                    <p>A subsidiary of SBI, offering a wide range of general insurance products.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact hidden">
+        <div class="container">
+            <div class="section-title fade-in-up" style="color: white; margin-bottom: 3rem;">
+                <h2>Connect with Dunga Surya Narayana</h2>
+                <p style="color: rgba(255,255,255,0.9);">Ready to secure your future? Let's discuss your insurance needs and find the perfect solution tailored for you.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info fade-in-up">
+                    <h3>Get Expert Insurance Consultation</h3>
+                    <p>With 18 years of experience in life and general insurance, I'm here to guide you through every step of your insurance journey. As an independent consultant, I work with all major insurance companies to provide you with unbiased advice and the best possible coverage.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div>
+                                <strong>Phone Number</strong><br>
+                                <a href="tel:+917730805234" style="color: #D4AF37; text-decoration: none;">+91 7730805234</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div>
+                                <strong>Email Address</strong><br>
+                                <a href="mailto:aurapolicyhub@gmail.com" style="color: #D4AF37; text-decoration: none;">aurapolicyhub@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <strong>Location</strong><br>
+                                Andhra Pradesh, India
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">⏰</div>
+                            <div>
+                                <strong>Consultation Hours</strong><br>
+                                Monday - Saturday: 9:00 AM - 7:00 PM<br>
+                                Sunday: 10:00 AM - 4:00 PM
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(212, 175, 55, 0.15); border-radius: 15px; border: 1px solid rgba(212, 175, 55, 0.3);">
+                        <h4 style="color: #D4AF37; margin-bottom: 1rem;">💡 Free Initial Consultation</h4>
+                        <p>Get personalized insurance advice with no obligation. I'll analyze your current situation, understand your needs, and recommend the best insurance solutions from across all major companies.</p>
+                        
+                        <div style="margin-top: 1rem;">
+                            <p><strong>✓</strong> No consultation fees for initial discussion</p>
+                            <p><strong>✓</strong> Unbiased recommendations across all insurers</p>
+                            <p><strong>✓</strong> Complete transparency in advice</p>
+                            <p><strong>✓</strong> Ongoing support throughout policy tenure</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form fade-in-up">
+                    <h3 style="color: #D4AF37; margin-bottom: 1.5rem;">Request Your Free Consultation</h3>
+                    <p>Click the button below to fill out our consultation form. All details will be securely submitted to our team for a prompt follow-up.</p>
+                    <a href="https://forms.gle/S9QuaqLU82bHYjqg8" target="_blank" class="cta-button">
+                        Open Consultation Form
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Aura Policy Hub | Dunga Surya Narayana - Senior Insurance Consultant | All Rights Reserved</p>
+            <p style="margin-top: 0.5rem; opacity: 0.7;">📱 +91 7730805234 | 📧 aurapolicyhub@gmail.com</p>
+            <p style="margin-top: 0.5rem; opacity: 0.7; font-size: 0.9rem;">Your Trusted Partner in Insurance Solutions for 18+ Years | Licensed Insurance Agent</p>
+        </div>
+    </footer>
+
+    <script>
+        // Section management
+        function showSection(sectionId) {
+            const sections = ['profile', 'services', 'insurance', 'loans', 'partnerships', 'contact'];
+            sections.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.classList.add('hidden');
+                }
+            });
+            
+            if (sectionId === 'home') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+            }
+            
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+        
+        // New function to toggle insurance subtypes
+        function toggleSubtypes(element) {
+            const parentCategory = element.closest('.insurance-category');
+            const content = parentCategory.querySelector('.sub-types');
+            
+            if (content.classList.contains('visible-content')) {
+                content.classList.remove('visible-content');
+            } else {
+                content.classList.add('visible-content');
+            }
+        }
+
+        // Header background change on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(26, 26, 26, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('home');
+        });
+    </script>
+</body>
+</html>
